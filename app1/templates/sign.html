@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        *{
+            margin: 0%;
+            
+            padding: 0%;
+        }
+        .con{
+            background-color: black;            
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        img{
+            border-top-right-radius: 30px;
+            border-bottom-right-radius:30px ;
+        }
+        .item2{
+            width: 45%;
+            padding: 25px;
+            margin: 20px;
+        }
+        .item1{
+            margin: 20px;
+        }
+        .item2{
+            background-color: cadetblue;
+            border-radius: 20px;
+            border: 4px solid red;
+        }
+        .item2 h1{
+            text-align: center;
+        }
+        .item2 label{
+            font-size: x-large;
+            margin: 15px;
+            display: block;
+        }
+        .item2 input{
+            font-size: x-large;
+            width: 95%;
+            height: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+        .item2 input::placeholder{
+            font-size: x-large;
+            text-align: center;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            padding: 10px;
+            margin: 20px;
+            font-size: larger;
+            width: 50%;
+            border-radius: 20px;
+            border: 3px solid black;
+        }
+        .sin,.im{
+            display: flex;
+            justify-content: center;
+        }
+        .sin p{
+            font-size: large;
+        }
+        #ico{
+            display: inline;
+            border-radius: 0px;
+            margin-left: 20px;
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="item1">          
+            <img src="{% static 'student.webp' %}" height="650px" width="650px" title="STUDENT POTAL" alt="Student Portal Teacher Image">      
+        </div>
+        <div class="item2">
+            <h1>SIGN UP STUDENT</h1>
+            
+            <div class="sin">
+           
+            <p>Don't an account to Sign Up</p>
+            
+            </div>
+            <div class="im">
+             <img id="ico" src="{% static 'back.webp' %}" height="50px" width="50px">
+             </div>
+            <div class="inp">
+                <h1 style="color: red;">{{error}}</h1>
+            <form action="/sign_vad/" method="post">
+                {% csrf_token %}
+                <label for="">Name</label>
+                <input type="text" required placeholder="enter your name" name="name" id="">
+                <label for="">Email</label>
+                <input type="email" required placeholder="enter your email" name="email" id="">
+                <label for="">Password</label>
+                <input type="password" required placeholder="enter your password" name="password" id="">
+                <label for="">Number</label>
+                <input type="number" required placeholder="enter your number" name="phone" id="">
+                <div class="btn">
+                    <button type="submit">SIGN UP</button>
+                </div>
+                <div class="sin">
+                    <p>Do You an account please ? <a href="/login">Login</a></p>
+                </div>
+            </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+    table,tr,th,td{
+        border-collapse: collapse;
+        border: 2px solid blue;
+    }
+    table{
+        width: 80%;
+        margin-top: 30px;
+    }
+    th,td{
+        padding: 20px;
+        font-size: x-large;
+        text-align: center;
+    }
+    table caption{
+        font-size: xx-large;
+        margin: 20px;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+
+    }
+    .btn a{
+        text-align: center;
+        text-decoration: none;        
+        background-color: black;
+        color: white;
+        font-size: x-large;
+        padding: 20px;
+        margin-top: 40px;
+        width: 10%;
+        border-radius: 10px;
+        border: 2px solid red;
+    }
+    </style>
+</head>
+<body>
+    <div class="btn">
+        <a href="/home">Back</a>
+    </div>
+    <div class="tab">
+                <table>
+                    
+                    <caption>ALL DETAILS</caption>
+                    <tr>
+                        <th>ROLL</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>GENDER</th>
+                        <th>ADDRESS</th>
+                    </tr>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{i.roll}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.age}}</td>
+                        <td>{{i.gender}}</td>
+                        <td>{{i.address}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+                
+            </div>
+    
+</body>
+</html>

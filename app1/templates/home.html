@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+    .item1{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 20px;
+        background-color: blueviolet;
+        color: aqua;
+        border: 3px solid black;
+        width: 95%;
+    }
+    .item1 button{
+        padding: 10px;
+        border: 2px solid white;
+        background-color: blueviolet;
+        color: black;
+        font-size: larger;
+        border-radius: 10px;
+    }
+    .item2{
+        display: flex;
+    }
+
+
+
+    /* block */
+
+
+    #home{
+        display: block;
+        color: brown;
+        width: 100%;
+    }
+    #add{
+        width: 100%;
+        display: none;
+        color: rgb(127, 255, 185);
+    }
+
+    #update{
+        width: 100%;
+        display: none;
+        color: aqua;
+    }
+    #delete{
+        width: 100%;
+        display: none;
+        color: aquamarine;
+    }
+    #single{
+        width: 100%;
+        display: none;
+        color: rgb(188, 188, 21);
+    }
+    #all{
+        width: 100%;
+        display: none;
+        color: red;
+    }
+    .child1{
+        background-color: orange;
+        width: 100%;
+        max-width: 400px;
+        border: 3px solid black;
+    }
+    .child1 button{
+        display: block;
+        text-align: center;
+        width: 83%;
+        margin:40px ;
+        font-size: x-large;
+        background-color: orange;
+        padding: 10px;
+        border: none;
+        color: aqua;
+        margin-bottom: 10px;
+    }
+    .child1 button:hover{
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        font-weight:bolder ;
+    }
+    .child1 h1{
+        text-align: center;
+        margin: 10px;
+        color: black;
+        font-weight: bolder;
+    }
+    .ele form{
+        border-radius: 20px;
+        background-color: rgb(221, 8, 147);
+        padding: 30px;
+        border: 2px solid black;
+        margin-left:10px ;
+        margin-right: 10px;
+        width: 60%;
+    }
+
+    label{
+        display: block;
+        font-size: larger;
+        margin: 10px;
+        color: black;
+    }
+    .ele{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .ele form input,textarea{
+        width: 90%;
+        height: 20px;
+        font-size: larger;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+    #gee{
+        padding: 10px;
+        width: 40px;
+    }
+    .ge{
+        display: flex;
+    }
+    .ele form input::placeholder,textarea::placeholder{
+        text-align: center;
+    }
+    .ele form h1{
+        text-align: center;
+    }
+    .sub{
+        display: flex;
+        justify-content: center;
+    }
+    .sub button{
+        font-size: larger;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 40%;
+
+    }
+    .tab{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+    table,tr,th,td{
+        border-collapse: collapse;
+        border: 2px solid blue;
+    }
+    table{
+        width: 80%;
+        margin-top: 30px;
+    }
+    th,td{
+        padding: 20px;
+        font-size: x-large;
+    }
+    table caption{
+        font-size: xx-large;
+        margin: 20px;
+    }
+    #home h1{
+        color: blueviolet;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .sin{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+    }
+    .sin label{
+        text-align: center;
+        font-size: larger;
+    }
+    .sin input{
+        font-size: large;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+    .sin input::placeholder{
+        text-align: center;
+    }
+    .sin .btn{
+        display: flex;
+        justify-content: center;
+    }
+    .sin .btn button{
+        margin: 20px;
+        padding: 10px;
+        width: 50%;
+        font-size: larger;
+        border-radius: 10px;
+    }
+    .sin form{
+        border: 2px solid black;
+        padding: 30px;
+        width: 60%;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sin h1{
+        text-align: center;
+    }
+    #home h2{
+        text-align: center;
+        font-size: xx-large;
+        background-color: aqua;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 100px;
+    }
+
+
+    
+
+
+
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="item1">
+    <h1>Hello  : {{name}}</h1>
+    <img id="ico" src="{% static 'back.webp' %}" height="50px" width="50px">
+    <h1>STUDENT MANAGEMENT SYSTEM</h1>
+    <form action="/log_out/" method="post">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
+    </div>
+
+    <div class="item2">
+        <div class="child1">
+            <h1>STUDENT</h1>
+            <button type="button" onclick="home()">HOME</button>
+            <button type="button" onclick="add()">ADD</button>
+            <button type="button" onclick="update()">UPDATE</button>
+            <button type="button" onclick="dele()">DELETE</button>
+            <button type="button" onclick="view_single()">VIEW_SINGLE</button>
+            <button type="button" onclick="view_all()">VIEW_ALL</button>
+
+        </div>
+        <div id="home">
+              
+            <h2>welcome to home</h2>
+            <h1>{{error}}</h1>      
+        </div>
+        <div id="add">
+            <div class="ele">
+            <form action="/adddata/" method="post">
+                {% csrf_token %}
+                <h1>ADD NEW STUDENT</h1>
+                <label for="">Roll</label>
+                <input type="number" name="roll" required placeholder="enter your roll" id="">
+                <label for="">Name</label>
+                <input type="text" name="name" required placeholder="enter your name" id="">
+                <label for="">Age</label>
+                <input type="number" name="age" required placeholder="enter your age" id="">
+                <label for="">Gender</label>
+                <div class="ge">
+                    <label for="">Male</label>
+                <input type="radio" value="male" name="gen" id="gee">
+                <label for="">Female</label>
+                <input type="radio" value="female" name="gen" id="gee">
+                </div>
+                <label for="">Address</label>
+                <textarea name="address" cols="30" rows="5" placeholder="enter your address" id=""></textarea>
+                <div class="sub">
+                    <button type="submit">ADD</button>
+                    <button type="reset">RESET</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div id="update">
+            <div class="ele">
+            <form action="/updatestudata/" method="post">
+                {% csrf_token %}
+                <h1>UPDATE STUDENT DATA</h1>
+                <label for="">CHANGE Roll</label>
+                <input type="number" name="chroll" required placeholder="enter your roll" id="">
+                <label for="">Roll</label>
+                <input type="number" name="roll" required placeholder="enter your roll" id="">
+                <label for="">Name</label>
+                <input type="text" name="name" required placeholder="enter your name" id="">
+                <label for="">Age</label>
+                <input type="number" name="age" required placeholder="enter your age" id="">
+                <label for="">Gender</label>
+                <div class="ge">
+                    <label for="">Male</label>
+                <input type="radio" value="male" name="gen" id="gee">
+                <label for="">Female</label>
+                <input type="radio" value="female" name="gen" id="gee">
+                </div>
+                <label for="">Address</label>
+                <textarea name="address" cols="30" rows="5" placeholder="enter your address" id=""></textarea>
+                <div class="sub">
+                    <button type="submit">UPDATE</button>
+                    <button type="reset">RESET</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <div id="delete">
+            <div class="sin">
+            <form action="/deletedataget/" method="post">
+                {% csrf_token %}
+                <h1 style="color: black;">To Enter Delete RollNO</h1>
+                <label for="">Roll No</label>
+                <input type="number" required placeholder="enter your roll" name="roll" id="">
+                <div class="btn">
+                <button type="submit">Delete Data</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+        <div id="single">
+            <div class="sin">
+            <form action="/singledataget/" method="post">
+                {% csrf_token %}
+                <h1>To enter RollNO</h1>
+                <label for="">Roll No</label>
+                <input type="number" required placeholder="enter your roll" name="roll" id="">
+                <div class="btn">
+                <button type="submit">GET Data</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+        <div id="all">
+            <div class="sin">
+            <form action="/alldataget/" method="post">
+                {% csrf_token %}
+                <h1>To Get All Data Click</h1>
+                <div class="btn">
+                <button type="submit">All Data</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+        
+    
+</div>
+
+
+<script>
+    function home(){
+        document.getElementById("home").style.display="block";
+        document.getElementById("add").style.display="none";
+        document.getElementById("update").style.display="none";
+        document.getElementById("delete").style.display="none";
+        document.getElementById("single").style.display="none";
+        document.getElementById("all").style.display="none";
+    }
+    function add(){
+        document.getElementById("home").style.display="none";
+        document.getElementById("add").style.display="block";
+        document.getElementById("update").style.display="none";
+        document.getElementById("delete").style.display="none";
+        document.getElementById("single").style.display="none";
+        document.getElementById("all").style.display="none";
+    }
+     function update(){
+         document.getElementById("home").style.display="none";
+        document.getElementById("add").style.display="none";
+        document.getElementById("update").style.display="block";
+        document.getElementById("delete").style.display="none";
+        document.getElementById("single").style.display="none";
+        document.getElementById("all").style.display="none";
+    }
+     function dele(){
+        document.getElementById("home").style.display="none";
+        document.getElementById("add").style.display="none";
+        document.getElementById("update").style.display="none";
+        document.getElementById("delete").style.display="block";
+        document.getElementById("single").style.display="none";
+        document.getElementById("all").style.display="none";
+    }
+     function view_single(){
+        document.getElementById("home").style.display="none";
+        document.getElementById("add").style.display="none";
+        document.getElementById("update").style.display="none";
+        document.getElementById("delete").style.display="none";
+        document.getElementById("single").style.display="block";
+        document.getElementById("all").style.display="none";
+    }
+     function view_all(){
+        document.getElementById("home").style.display="none";
+        document.getElementById("add").style.display="none";
+        document.getElementById("update").style.display="none";
+        document.getElementById("delete").style.display="none";
+        document.getElementById("single").style.display="none";
+        document.getElementById("all").style.display="block";
+    }
+</script>
+</body>
+</html>
